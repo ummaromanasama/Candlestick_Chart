@@ -6,7 +6,7 @@ from bokeh.plotting import figure, show, output_file
 from math import pi
 
 #Request ticker symbol
-API_KEY = 'YOUr API KEY'
+API_KEY = 'YOUR API KEY'
 symbol = input('Enter ticker symbol: ')
 r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&apikey=' + API_KEY)
 print(r.status_code)
