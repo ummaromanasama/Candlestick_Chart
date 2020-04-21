@@ -5,15 +5,17 @@ import datetime
 from bokeh.plotting import figure, show, output_file
 from math import pi
 
-#Request ticker symbol
+#API key
 API_KEY = 'DJDC70DZV667MOEM'
+
+#Request ticker symbol
 symbol = input('Enter ticker symbol: ')
 r = requests.get('https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=' + symbol + '&apikey=' + API_KEY)
 print(r.status_code)
 result = r.json()
 dataForAllDays = result['Time Series (Daily)']
 
-#convert to dataframe
+#Convert to dataframe
 df = pd.DataFrame.from_dict(dataForAllDays, orient='index') 
 df = df.reset_index()
 
@@ -33,7 +35,7 @@ df.high = df.high.astype(float)
 df.low = df.low.astype(float)
 df.volume = df.volume.astype(int)
 
-#check the data
+#Check the data
 df.head()
 
 #Check the datatype
@@ -53,5 +55,5 @@ p.vbar(df.date[dec], w, df.open[dec], df.close[dec], fill_color="#F2583E", line_
 #Store as a HTML file
 output_file("stock_information.html", title="candlestick.py")
 
-# Display in browser
+#Display in browser
 show(p)
