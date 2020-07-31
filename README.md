@@ -1,4 +1,4 @@
-# Investing
+# Candlestick_Chart
 
 Overview: This project was an opportunity for me to explore python in the context of data science, how to read candlestick charts, and have a better understanding of companies from an investors point of view.
 * You can ask for your desired ticker's candlestick chart utilizing Alpha Vantages API for data and Bokeh library to generate the graph in candlesticks.py. 
